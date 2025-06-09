@@ -871,11 +871,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: cb4f9462-6bc7-4bb2-95d8-d648f2594f54
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: LightVRGame
+  organizationId: ladagudook
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
