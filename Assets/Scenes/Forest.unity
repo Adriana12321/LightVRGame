@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,10 +243,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e24232322e184d82935c786754627fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkPrefab: {fileID: 6070361680381369172}
+  chunkPrefab: {fileID: 587917169706640711, guid: 631c82cdc5700473c880967c001cede4,
+    type: 3}
   player: {fileID: 287356178}
-  spawnDistance: 50
+  firstChunkInScene: {fileID: 6070361680381369173}
   chunksAhead: 3
+  maxChunks: 8
+  spawnDistance: 50
 --- !u!4 &586758312
 Transform:
   m_ObjectHideFlags: 0
@@ -2343,6 +2346,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3452679696134047840, guid: 631c82cdc5700473c880967c001cede4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.214
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452679696134047840, guid: 631c82cdc5700473c880967c001cede4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.702
+      objectReference: {fileID: 0}
     - target: {fileID: 5245693874167072109, guid: 631c82cdc5700473c880967c001cede4,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2353,9 +2366,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 631c82cdc5700473c880967c001cede4, type: 3}
---- !u!1 &6070361680381369172 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 587917169706640711, guid: 631c82cdc5700473c880967c001cede4,
+--- !u!4 &6070361680381369173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3432197776116467669, guid: 631c82cdc5700473c880967c001cede4,
     type: 3}
   m_PrefabInstance: {fileID: 6070361680381369171}
   m_PrefabAsset: {fileID: 0}
