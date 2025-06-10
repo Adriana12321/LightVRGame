@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class LightTransferInteraction : MonoBehaviour
 {
     [Header("Input Action")]
-    public InputActionProperty gripAction; // replaces controller.inputDevice.TryGet...
+    public InputActionProperty gripAction;
 
     [Header("Setup")]
     public Transform chestLightTransform;
@@ -18,14 +18,19 @@ public class LightTransferInteraction : MonoBehaviour
 
     void Update()
     {
-        bool gripPressed = gripAction.action.ReadValue<float>() > 0.5f;
+        float gripValue = gripAction.action.ReadValue<float>();
+        bool gripPressed = gripValue > 0.5f;
+
+        Debug.DrawRay(transform.position, transform.forward * 10f, Color.green); // Visual debug line
 
         if (gripPressed && !isHoldingLight && playerLightController.currentEnergy >= transferAmount)
         {
+            Debug.Log($"Grip detected (value: {gripValue}), grabbing light.");
             GrabLight();
         }
         else if (!gripPressed && isHoldingLight)
         {
+            Debug.Log("Grip released, attempting to transfer light.");
             ReleaseLight();
         }
 
@@ -39,6 +44,7 @@ public class LightTransferInteraction : MonoBehaviour
     {
         isHoldingLight = true;
         currentGrabbedLight = Instantiate(grabbedLightVisualPrefab, chestLightTransform.position, Quaternion.identity);
+        Debug.Log("Light grabbed and visual instantiated.");
     }
 
     void ReleaseLight()
@@ -51,15 +57,36 @@ public class LightTransferInteraction : MonoBehaviour
 
         if (Physics.Raycast(rayOrigin, rayDirection, out hit, 10f))
         {
+            Debug.Log($"Raycast hit: {hit.collider.gameObject.name}");
+
             NPCLightReceiver npc = hit.collider.GetComponent<NPCLightReceiver>();
-            if (npc && playerLightController.TryConsumeEnergy(transferAmount))
+            if (npc != null)
             {
-                npc.ReceiveLight(transferAmount);
-                currentGrabbedLight.transform.position = npc.transform.position;
-                Destroy(currentGrabbedLight, 1f);
-                currentGrabbedLight = null;
-                return;
+                Debug.Log("NPC detected. Attempting to transfer energy.");
+                bool success = playerLightController.TryConsumeEnergy(transferAmount);
+                if (success)
+                {
+                    npc.ReceiveLight(transferAmount);
+                    Debug.Log($"Energy transferred: {transferAmount}. Remaining energy: {playerLightController.GetCurrentEnergy()}");
+
+                    currentGrabbedLight.transform.position = npc.transform.position;
+                    Destroy(currentGrabbedLight, 1f);
+                    currentGrabbedLight = null;
+                    return;
+                }
+                else
+                {
+                    Debug.LogWarning("Not enough energy to transfer!");
+                }
             }
+            else
+            {
+                Debug.Log("Hit object is not an NPC.");
+            }
+        }
+        else
+        {
+            Debug.Log("Raycast missed. No NPC hit.");
         }
 
         Destroy(currentGrabbedLight);
