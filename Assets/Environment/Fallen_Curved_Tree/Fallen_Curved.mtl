@@ -1,0 +1,88 @@
+# Wavefront Object Material File
+# Generated using SpeedTree tools
+
+newmtl Branch_Leaf_0013_Mat
+map_Kd Branch_Leaf_0013.jpg
+map_d Branch_Leaf_0013_Opacity.jpg
+map_bump Branch_Leaf_0013_Normal.jpg
+bump Branch_Leaf_0013_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl Branch_Leaf_0013_v2_Mat
+map_Kd Branch_Leaf_0013_v2.jpg
+map_d Branch_Leaf_0013_Opacity.jpg
+map_bump Branch_Leaf_0013_Normal.jpg
+bump Branch_Leaf_0013_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl Branch_Leaf_0013_v3_Mat
+map_Kd Branch_Leaf_0013_v3.jpg
+map_d Branch_Leaf_0013_Opacity.jpg
+map_bump Branch_Leaf_0013_Normal.jpg
+bump Branch_Leaf_0013_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl Branch_Leaf_0013_v4_Mat
+map_Kd Branch_Leaf_0013_v4.jpg
+map_d Branch_Leaf_0013_Opacity.jpg
+map_bump Branch_Leaf_0013_Normal.jpg
+bump Branch_Leaf_0013_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl Default_Mat
+map_d 
+map_bump 
+bump  -bm 1
+Ns 128
+illum 2
+
+
+newmtl bark_brown_02_diff_8k_Mat
+map_Kd bark_brown_02_diff_8k.jpg
+map_d 
+map_bump bark_brown_02_diff_8k_Normal.jpg
+bump bark_brown_02_diff_8k_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl weed_Mat
+map_d 
+map_bump 
+bump  -bm 1
+Ns 128
+illum 2
+
+
+newmtl weed_v2_Mat
+map_d 
+map_bump 
+bump  -bm 1
+Ns 128
+illum 2
+
+
+newmtl weed_v3_Mat
+map_d 
+map_bump 
+bump  -bm 1
+Ns 128
+illum 2
+
+
+newmtl weed_v4_Mat
+map_d 
+map_bump 
+bump  -bm 1
+Ns 128
+illum 2
+
+

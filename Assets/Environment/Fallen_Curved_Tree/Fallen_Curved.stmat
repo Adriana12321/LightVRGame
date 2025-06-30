@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!-- Generated using SpeedTree tools -->
+<Materials Count="10" Mesh="Fallen_Curved.obj" FlipOpacity="0">
+	<Material ID="2" Name="Branch_Leaf_0013_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="Branch_Leaf_0013.jpg" />
+		<Map Name="Opacity" File="Branch_Leaf_0013_Opacity.jpg" />
+		<Map Name="Normal" File="Branch_Leaf_0013_Normal.jpg" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="SubsurfaceColor" ColorR="0.816663" ColorG="1" ColorB="0" />
+		<Map Name="SubsurfaceAmount" Value="0.3" />
+		<Map Name="AO" File="Branch_Leaf_0013_AO.jpg" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="1002" Name="Branch_Leaf_0013_v2_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="Branch_Leaf_0013_v2.jpg" />
+		<Map Name="Opacity" File="Branch_Leaf_0013_Opacity.jpg" />
+		<Map Name="Normal" File="Branch_Leaf_0013_Normal.jpg" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="SubsurfaceColor" ColorR="0.816663" ColorG="1" ColorB="0" />
+		<Map Name="SubsurfaceAmount" Value="0.3" />
+		<Map Name="AO" File="Branch_Leaf_0013_AO.jpg" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="2002" Name="Branch_Leaf_0013_v3_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="Branch_Leaf_0013_v3.jpg" />
+		<Map Name="Opacity" File="Branch_Leaf_0013_Opacity.jpg" />
+		<Map Name="Normal" File="Branch_Leaf_0013_Normal.jpg" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="SubsurfaceColor" ColorR="0.816663" ColorG="1" ColorB="0" />
+		<Map Name="SubsurfaceAmount" Value="0.3" />
+		<Map Name="AO" File="Branch_Leaf_0013_AO.jpg" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="3002" Name="Branch_Leaf_0013_v4_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="Branch_Leaf_0013_v4.jpg" />
+		<Map Name="Opacity" File="Branch_Leaf_0013_Opacity.jpg" />
+		<Map Name="Normal" File="Branch_Leaf_0013_Normal.jpg" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="SubsurfaceColor" ColorR="0.816663" ColorG="1" ColorB="0" />
+		<Map Name="SubsurfaceAmount" Value="0.3" />
+		<Map Name="AO" File="Branch_Leaf_0013_AO.jpg" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="0" Name="Default_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" ColorR="0.8" ColorG="0.8" ColorB="0.8" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="1" Name="bark_brown_02_diff_8k_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="bark_brown_02_diff_8k.jpg" />
+		<Map Name="Normal" File="bark_brown_02_diff_8k_Normal.jpg" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="AO" File="bark_brown_02_diff_8k_AO.jpg" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="3" Name="weed_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" ColorR="0.0980392" ColorG="0.294118" ColorB="0" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="1003" Name="weed_v2_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" ColorR="0.0980392" ColorG="0.294118" ColorB="0" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="2003" Name="weed_v3_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" ColorR="0.0980392" ColorG="0.294118" ColorB="0" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="3003" Name="weed_v4_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" ColorR="0.0980392" ColorG="0.294118" ColorB="0" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+</Materials>
