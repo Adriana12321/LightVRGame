@@ -4,7 +4,10 @@ public class ChunkSpawner : MonoBehaviour
 {
     public GameObject chunkPrefab;
     public Transform player;
-    public Transform firstChunkInScene; // drag the first chunk here
+    public Transform firstChunkInScene;
+    public GameObject endingObject;
+    public GameObject godCharacterPrefab; // 👈 Add this in Inspector
+
     public int chunksAhead = 3;
     public int maxChunks = 20;
     public float spawnDistance = 50f;
@@ -78,5 +81,41 @@ public class ChunkSpawner : MonoBehaviour
         }
 
         currentChunkCount++;
+
+        // === Activate or deactivate EndWallTrigger via ChunkMetadata ===
+        ChunkMetadata metadata = chunk.GetComponent<ChunkMetadata>();
+
+        if (metadata != null && metadata.gameEnd != null)
+        {
+            if (currentChunkCount == maxChunks)
+            {
+                metadata.gameEnd.SetActive(true);
+                Debug.Log("[ChunkSpawner] Activated EndWallTrigger on final chunk.");
+
+                // === SPAWN GOD CHARACTER ===
+               if (godCharacterPrefab != null)
+                {
+                    Vector3 spawnPosition = metadata.gameEnd.transform.position;
+                    spawnPosition.y -= 30f; // 👈 Lower by 30 units
+
+                    Instantiate(
+                        godCharacterPrefab,
+                        spawnPosition,
+                        Quaternion.Euler(0, 90f, 0) // Optional: rotate 90° on Y axis
+                    );
+
+                    Debug.Log("[ChunkSpawner] Spawned God character 30 units below gameEnd.");
+                }
+
+            }
+            else
+            {
+                metadata.gameEnd.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[ChunkSpawner] Chunk is missing ChunkMetadata or gameEnd reference.");
+        }
     }
 }

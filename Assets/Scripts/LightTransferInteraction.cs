@@ -13,6 +13,13 @@ public class LightTransferInteraction : MonoBehaviour
     public PlayerLightController playerLightController;
     public float transferAmount = 100f;
 
+    [Header("Environment Brightness")]
+    public GlobalLightLevelController lightLevelController;
+    public float brightnessPerTransfer = 0.2f;
+
+    [Header("God Character Glow")]
+    public GodGlowController godGlowController;  
+
     private GameObject currentGrabbedLight;
     private bool isHoldingLight = false;
 
@@ -68,6 +75,16 @@ public class LightTransferInteraction : MonoBehaviour
                 {
                     npc.ReceiveLight(transferAmount);
                     Debug.Log($"Energy transferred: {transferAmount}. Remaining energy: {playerLightController.GetCurrentEnergy()}");
+
+                    if (lightLevelController != null)
+                    {
+                        lightLevelController.DecreaseExposure(brightnessPerTransfer);
+                    }
+
+                    if (godGlowController != null)
+                    {
+                        godGlowController.AddReceivedLight(transferAmount); // <-- Call here
+                    }
 
                     currentGrabbedLight.transform.position = npc.transform.position;
                     Destroy(currentGrabbedLight, 1f);
