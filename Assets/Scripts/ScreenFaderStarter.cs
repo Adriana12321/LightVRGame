@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class ScreenFader : MonoBehaviour
+public class ScreenFaderStarter : MonoBehaviour
 {
     public Image blackFadeImage;
     public GameObject blackFadeGO;

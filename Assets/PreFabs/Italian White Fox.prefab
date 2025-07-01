@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcLight: {fileID: 1565221871237874936}
   currentEnergy: 0
-  maxEnergy: 1000
+  maxEnergy: 100
 --- !u!108 &1565221871237874936
 Light:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ public class NPCSpawner : MonoBehaviour
     public List<Transform> spawnPoints;
 
     [Header("Spawn Control")]
-    public int spawnCountMin = 1;
-    public int spawnCountMax = 3;
+    public int spawnCountMin = 2;
+    public int spawnCountMax = 4;
 
     void Start()
     {

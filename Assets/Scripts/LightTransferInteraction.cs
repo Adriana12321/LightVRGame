@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
+
 public class LightTransferInteraction : MonoBehaviour
 {
     [Header("Input Action")]
@@ -18,7 +22,7 @@ public class LightTransferInteraction : MonoBehaviour
     public float brightnessPerTransfer = 0.2f;
 
     [Header("God Character Glow")]
-    public GodGlowController godGlowController;  
+    public GodGlowController godGlowController;
 
     private GameObject currentGrabbedLight;
     private bool isHoldingLight = false;
@@ -28,16 +32,14 @@ public class LightTransferInteraction : MonoBehaviour
         float gripValue = gripAction.action.ReadValue<float>();
         bool gripPressed = gripValue > 0.5f;
 
-        Debug.DrawRay(transform.position, transform.forward * 10f, Color.green); // Visual debug line
+        Debug.DrawRay(transform.position, transform.forward * 10f, Color.green);
 
         if (gripPressed && !isHoldingLight && playerLightController.currentEnergy >= transferAmount)
         {
-            Debug.Log($"Grip detected (value: {gripValue}), grabbing light.");
             GrabLight();
         }
         else if (!gripPressed && isHoldingLight)
         {
-            Debug.Log("Grip released, attempting to transfer light.");
             ReleaseLight();
         }
 
@@ -51,7 +53,6 @@ public class LightTransferInteraction : MonoBehaviour
     {
         isHoldingLight = true;
         currentGrabbedLight = Instantiate(grabbedLightVisualPrefab, chestLightTransform.position, Quaternion.identity);
-        Debug.Log("Light grabbed and visual instantiated.");
     }
 
     void ReleaseLight()
@@ -64,49 +65,59 @@ public class LightTransferInteraction : MonoBehaviour
 
         if (Physics.Raycast(rayOrigin, rayDirection, out hit, 10f))
         {
-            Debug.Log($"Raycast hit: {hit.collider.gameObject.name}");
-
             NPCLightReceiver npc = hit.collider.GetComponent<NPCLightReceiver>();
             if (npc != null)
             {
-                Debug.Log("NPC detected. Attempting to transfer energy.");
-                bool success = playerLightController.TryConsumeEnergy(transferAmount);
-                if (success)
+                float spaceAvailable = npc.maxEnergy - npc.currentEnergy;
+
+                if (spaceAvailable >= transferAmount)
                 {
-                    npc.ReceiveLight(transferAmount);
-                    Debug.Log($"Energy transferred: {transferAmount}. Remaining energy: {playerLightController.GetCurrentEnergy()}");
-
-                    if (lightLevelController != null)
+                    bool success = playerLightController.TryConsumeEnergy(transferAmount);
+                    if (success)
                     {
-                        lightLevelController.DecreaseExposure(brightnessPerTransfer);
-                    }
+                        npc.ReceiveLight(transferAmount);
+                        lightLevelController?.DecreaseExposure(brightnessPerTransfer);
+                        godGlowController?.AddReceivedLight(transferAmount);
 
-                    if (godGlowController != null)
+                        currentGrabbedLight.transform.position = npc.transform.position;
+                        Destroy(currentGrabbedLight);
+                        currentGrabbedLight = null;
+
+                        return;
+                    }
+                    else
                     {
-                        godGlowController.AddReceivedLight(transferAmount); // <-- Call here
-                    }
+                        Debug.LogWarning("[LightTransfer] Not enough player energy!");
+                        Destroy(currentGrabbedLight);
+                        currentGrabbedLight = null;
 
-                    currentGrabbedLight.transform.position = npc.transform.position;
-                    Destroy(currentGrabbedLight, 1f);
-                    currentGrabbedLight = null;
-                    return;
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning("Not enough energy to transfer!");
+                    Debug.Log("[LightTransfer] NPC is full. Transfer and consumption blocked.");
+                    Destroy(currentGrabbedLight);
+                    currentGrabbedLight = null;
+  
                 }
             }
             else
             {
-                Debug.Log("Hit object is not an NPC.");
+                Debug.Log("[LightTransfer] Raycast hit non-NPC object.");
+                Destroy(currentGrabbedLight);
+                currentGrabbedLight = null;
             }
         }
         else
         {
-            Debug.Log("Raycast missed. No NPC hit.");
+            Debug.Log("[LightTransfer] Raycast missed.");
+            Destroy(currentGrabbedLight);
+            currentGrabbedLight = null;
         }
 
+        // If transfer fails or is blocked, destroy visual
         Destroy(currentGrabbedLight);
         currentGrabbedLight = null;
     }
+
 }

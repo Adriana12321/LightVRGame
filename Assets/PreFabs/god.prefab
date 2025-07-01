@@ -95,6 +95,14 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 78c8a0094e7424738bac38bfc75d0a3a,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 4992182715035116236}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 78c8a0094e7424738bac38bfc75d0a3a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8399275978485681323}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 78c8a0094e7424738bac38bfc75d0a3a,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5006511267456316537}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 78c8a0094e7424738bac38bfc75d0a3a,
         type: 3}
@@ -115,6 +123,44 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5024509931930525102}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &4992182715035116236
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295051155031269631}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.6, z: 1}
+  m_Center: {x: 0, y: 0.87, z: 0}
+--- !u!114 &-8399275978485681323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295051155031269631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1070fdbc086b13248bc19fc1c6a26277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcLight: {fileID: 2638625797750013866}
+  currentEnergy: 0
+  maxEnergy: 1000
+  isGod: 1
+  godTouchEndTrigger: {fileID: -451113515097756409}
 --- !u!114 &5006511267456316537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42025e676e6db9340a065e686bf6b340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endingObject: {fileID: 5295051155031269631}
   playerTag: Player
+  screenFaderStarter: {fileID: 0}
 --- !u!1 &5578638410600380870 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 635547659545568360, guid: 78c8a0094e7424738bac38bfc75d0a3a,

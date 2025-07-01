@@ -6,8 +6,8 @@ public class GlobalLightLevelController : MonoBehaviour
 {
     public Volume globalVolume;
     public float maxExposure = 15f; // start at 15 = darkest
-    public float minExposure = 13f;  // 0 = brightest
-    public float exposureStep = 0.2f;
+    public float minExposure = 11f;  // 0 = brightest
+    public float exposureStep = 0.5f;
 
     private Exposure exposure;
 
