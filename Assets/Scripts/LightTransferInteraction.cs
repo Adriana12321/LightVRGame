@@ -79,12 +79,14 @@ public class LightTransferInteraction : MonoBehaviour
                         lightLevelController?.DecreaseExposure(brightnessPerTransfer);
                         godGlowController?.AddReceivedLight(transferAmount);
 
-                        currentGrabbedLight.transform.position = npc.transform.position;
-                        Destroy(currentGrabbedLight);
+                        Debug.Log("[LightTransfer] Transferring light to NPC, destroying visual");
+
+                        Destroy(currentGrabbedLight); // no position update
                         currentGrabbedLight = null;
 
                         return;
                     }
+
                     else
                     {
                         Debug.LogWarning("[LightTransfer] Not enough player energy!");
